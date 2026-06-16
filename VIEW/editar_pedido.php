@@ -54,8 +54,12 @@ if (isset($_POST['editar'])) {
     <link rel="stylesheet" href="../CSS/estilo.css">
 </head>
 <body>
-
-    <a href="pedidos.php"><- Cancelar e Voltar</a>
+<div class="menu_lateral">
+    <img class="Logo" src="/brownie/IMG/Logo.png" alt="Logo">
+    <a href="pedidos.php">Cancelar e voltar</a>
+    <a href="../logout.php"><b> SAIR DO SISTEMA </b></a>
+</div>
+<div class="escopo" >
     <h1>Editar Pedido / Venda Nº <?php echo $pedidoAtual->getId(); ?></h1>
 
     <p>Valor Atual do Pedido: <b>R$ <?php echo number_format($pedidoAtual->getValorTotal(), 2, ',', '.'); ?></b></p>
@@ -90,6 +94,6 @@ if (isset($_POST['editar'])) {
 
         <button name="editar">Salvar Alterações</button>
     </form>
-
+</div>
 </body>
 </html>

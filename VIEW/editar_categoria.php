@@ -45,15 +45,18 @@ if (isset($_POST['editar'])) {
     <link rel="stylesheet" href="../CSS/estilo.css">
 </head>
 <body>
-
-    <a href="categorias.php"><- Cancelar e Voltar</a>
+ <div class="menu_lateral">
+    <img class="Logo" src="/brownie/IMG/Logo.png" alt="Logo">
+     <a href="categorias.php">Cancelar e Voltar</a>
+     <a href="../logout.php"><b> SAIR DO SISTEMA </b></a>
+</div>
+   <div class="escopo">
     <h1>Editar Nome da Categoria</h1>
-
     <form method="POST">
         Nome da Categoria: <br>
         <input type="text" name="nome" value="<?php echo $categoriaAtual->getNome(); ?>" required> <br><br>
         <button name="editar">Salvar Alterações</button>
     </form>
-
+</div>
 </body>
 </html>

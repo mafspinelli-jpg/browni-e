@@ -52,8 +52,13 @@ if (isset($_POST['editar'])) {
     <link rel="stylesheet" href="../CSS/estilo.css">
 </head>
 <body>
+<div class="menu_lateral">
+    <img class="Logo" src="/brownie/IMG/Logo.png" alt="Logo">
+    <a href="produtos.php">Cancelar e voltar</a>
+    <a href="../logout.php"><b> SAIR DO SISTEMA </b></a>
+</div>
 
-    <a href="produtos.php"><- Cancelar e Voltar</a>
+    <div class="escopo">
     <h1>Editar Cadastro do Doce</h1>
 
     <form method="POST">
@@ -83,6 +88,6 @@ if (isset($_POST['editar'])) {
 
         <button name="editar">Salvar Alterações</button>
     </form>
-
+</div>
 </body>
 </html>

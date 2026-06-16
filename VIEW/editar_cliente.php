@@ -15,6 +15,7 @@ if (!isset($_GET['id'])) {
     header("Location: clientes.php");
     exit();
 }
+
 $id = intval($_GET['id']);
 $clienteAtual = $clienteDAL->SelectById($id);
 
@@ -25,6 +26,7 @@ if ($clienteAtual == null) {
 
 if (isset($_POST['editar'])) {
     $clienteAtual->setNome($_POST['nome']);
+    $clienteAtual->setCpf($_POST['cpf']);
     $clienteAtual->setEmail($_POST['email']);
     $clienteAtual->setTelefone($_POST['telefone']);
     $clienteAtual->setCidade($_POST['cidade']);
@@ -49,28 +51,32 @@ if (isset($_POST['editar'])) {
     <link rel="stylesheet" href="../CSS/estilo.css">
 </head>
 <body>
+<div class="menu_lateral">
+    <img class="Logo" src="/brownie/IMG/Logo.png" alt="Logo">
+    <a href="clientes.php">Cancelar e voltar</a>
+    <a href="../logout.php"><b> SAIR DO SISTEMA </b></a>
+</div>
 
-    <a href="clientes.php"><- Cancelar e Voltar</a>
+<div class="escopo">
     <h1>Editar Cadastro do Cliente</h1>
 
     <form method="POST">
+        <input type="hidden" name="id" value="<?php echo $clienteAtual->getId(); ?>">
         Nome: <br> 
         <input type="text" name="nome" value="<?php echo $clienteAtual->getNome(); ?>" required> <br><br>
-
-        Email: <br> 
+        Cpf: <br> 
+        <input type="text" name="cpf" value="<?php echo $clienteAtual->getCpf(); ?>" required> <br><br>
+        E-mail: <br> 
         <input type="email" name="email" value="<?php echo $clienteAtual->getEmail(); ?>" required> <br><br>
-
         Telefone: <br> 
         <input type="text" name="telefone" value="<?php echo $clienteAtual->getTelefone(); ?>" required> <br><br>
-
         Cidade: <br> 
         <input type="text" name="cidade" value="<?php echo $clienteAtual->getCidade(); ?>" required> <br><br>
-
         Estado: <br> 
         <input type="text" name="estado" maxlength="2" value="<?php echo $clienteAtual->getEstado(); ?>" required> <br><br>
-
         <button name="editar">Salvar Alterações</button>
     </form>
-
+    
+</div>
 </body>
 </html>
