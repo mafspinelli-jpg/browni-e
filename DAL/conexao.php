@@ -7,7 +7,7 @@ use PDOException;
 class Conexao {
     private static $dbNome = 'doceria_browni-e'; 
     private static $dbHost = 'localhost';
-    private static $dbPort = '3307'; 
+    private static $dbPort = '3306'; 
     private static $dbUsuario = 'root';
     private static $dbSenha = '';
     

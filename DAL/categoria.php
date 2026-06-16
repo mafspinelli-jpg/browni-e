@@ -69,5 +69,16 @@ class Categoria {
         }
         return null;
     }
+
+    public function categoriaTotal() {
+        $sql = "SELECT COUNT(id) AS total FROM categorias;";
+        $con = Conexao::conectar();
+        $query = $con->query($sql);
+        $linha = $query->fetch(\PDO::FETCH_ASSOC);
+        $con = Conexao::desconectar();
+
+        return $linha['total'] ?? 0;
+    }
+
 }
 ?>

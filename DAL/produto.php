@@ -94,5 +94,48 @@ class Produto {
         }
         return null;
     }
-}
+
+    public function TotalProdutos() {
+        $sql = "SELECT COUNT(id) AS total FROM produtos;";
+        $con = Conexao::conectar();
+        $query = $con->query($sql);
+        $linha = $query->fetch(\PDO::FETCH_ASSOC);
+        $con = Conexao::desconectar();
+
+        return $linha['total'] ?? 0;
+    }
+
+    public function SomaEstoque() {
+        $sql = "SELECT SUM(quantidade_estoque) AS total FROM produtos;";
+        $con = Conexao::conectar();
+        $query = $con->query($sql);
+        $linha = $query->fetch(\PDO::FETCH_ASSOC);
+        $con = Conexao::desconectar();
+
+        return $linha['total'] ?? 0;
+    }
+
+    public function TotalEstoqueBaixo(int $limite) {
+        $sql = "SELECT COUNT(id) AS total FROM produtos WHERE quantidade_estoque <= ?;";
+        $con = Conexao::conectar();
+        $query = $con->prepare($sql);
+        $query->execute(array($limite));
+        $linha = $query->fetch(\PDO::FETCH_ASSOC);
+        $con = Conexao::desconectar();
+
+        return $linha['total'] ?? 0;
+    }
+
+    public function valorestoqueTotal() {
+
+        $sql = "SELECT SUM(preco_venda * quantidade_estoque) AS total FROM produtos;";
+        $con = Conexao::conectar();
+        $query = $con->query($sql);
+        $linha = $query->fetch(\PDO::FETCH_ASSOC);
+        $con = Conexao::desconectar();
+
+        return $linha['total'] ?? 0;
+    }
+
+    }
 ?>

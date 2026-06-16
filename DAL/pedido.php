@@ -143,5 +143,35 @@ class Pedido {
         Conexao::desconectar();
         return $result;
     }
+
+    public function TotalPedidos() {
+        $sql = "SELECT COUNT(id) AS total FROM pedidos;";
+        $con = Conexao::conectar();
+        $query = $con->query($sql);
+        $linha = $query->fetch(\PDO::FETCH_ASSOC);
+        $con = Conexao::desconectar();
+
+        return $linha['total'] ?? 0;
+    }
+
+    public function valorvendidoTotal() {
+        $sql = "SELECT SUM(valor_total) AS total FROM pedidos;";
+        $con = Conexao::conectar();
+        $query = $con->query($sql);
+        $linha = $query->fetch(\PDO::FETCH_ASSOC);
+        $con = Conexao::desconectar();
+
+        return $linha['total'] ?? 0;
+    }
+
+    public function itensvendidosTotal() {
+        $sql = "SELECT SUM(quantidade_vendida) AS total FROM pedidos;";
+        $con = Conexao::conectar();
+        $query = $con->query($sql);
+        $linha = $query->fetch(\PDO::FETCH_ASSOC);
+        $con = Conexao::desconectar();
+
+        return $linha['total'] ?? 0;
+    }
 }
 ?>

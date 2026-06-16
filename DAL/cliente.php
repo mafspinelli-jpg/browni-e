@@ -8,8 +8,8 @@ class Cliente {
     
     public function Insert(\MODEL\Cliente $cliente) {
 
-        $sql = "INSERT INTO clientes (nome, email, telefone, cidade, estado) 
-                VALUES ('{$cliente->getNome()}', '{$cliente->getEmail()}', '{$cliente->getTelefone()}', '{$cliente->getCidade()}', '{$cliente->getEstado()}');";
+        $sql = "INSERT INTO clientes (nome, cpf, email, telefone, cidade, estado) 
+                VALUES ('{$cliente->getNome()}','{$cliente->getCpf()}', '{$cliente->getEmail()}', '{$cliente->getTelefone()}', '{$cliente->getCidade()}', '{$cliente->getEstado()}');";
                 
         $con = Conexao::conectar();
         $result = $con->query($sql);
@@ -29,6 +29,7 @@ class Cliente {
             $cliente = new \MODEL\Cliente();
             $cliente->setId($linha['id']);
             $cliente->setNome($linha['nome']);
+            $cliente->setCpf($linha['cpf']);
             $cliente->setEmail($linha['email']);
             $cliente->setTelefone($linha['telefone']);
             $cliente->setCidade($linha['cidade']); 
@@ -53,6 +54,7 @@ class Cliente {
     public function Update(\MODEL\Cliente $cliente) {
         $sql = "UPDATE clientes SET 
                 nome = ?, 
+                cpf = ?, 
                 email = ?, 
                 telefone = ?, 
                 cidade = ?, 
@@ -63,6 +65,7 @@ class Cliente {
         $query = $con->prepare($sql);
         $result = $query->execute(array(
             $cliente->getNome(),
+            $cliente->getCpf(),
             $cliente->getEmail(),
             $cliente->getTelefone(),
             $cliente->getCidade(),
@@ -86,6 +89,7 @@ class Cliente {
             $cliente = new \MODEL\Cliente();
             $cliente->setId($linha['id']);
             $cliente->setNome($linha['nome']);
+            $cliente->setCpf($linha['cpf']);
             $cliente->setEmail($linha['email']);
             $cliente->setTelefone($linha['telefone']);
             $cliente->setCidade($linha['cidade']);
@@ -94,5 +98,16 @@ class Cliente {
         }
         return null;
     }
+
+    public function clientesTotal() {
+        $sql = "SELECT COUNT(id) AS total FROM clientes;";
+        $con = Conexao::conectar();
+        $query = $con->query($sql);
+        $linha = $query->fetch(\PDO::FETCH_ASSOC);
+        $con = Conexao::desconectar();
+
+        return $linha['total'] ?? 0;
+    }
+
 }
 ?>
