@@ -1,0 +1,264 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fcf8f5; 
+    color:  #533D36; 
+    margin: 40px;
+    padding: 0;
+}
+h1, h2, h3 {
+    color: #5c3d24; 
+}
+
+a {
+    color: #8c5333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    max-width: 500px;
+    border: 1px solid #e3c9e8;
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+textarea,
+select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Garante que o padding não passe do tamanho limite */
+}
+
+button {
+    background-color: #A855F7; 
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+
+}
+
+button:hover {
+    background-color: #974cdd;
+}
+
+/* Tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    overflow: hidden; /* Garante que a borda arredondada funcione na tabela */
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e8dec9;
+}
+
+th {
+    background-color: #5c3d24;
+    color: white;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f9f5f0;
+}
+
+.alerta {
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    max-width: 500px;
+}
+
+.alerta-sucesso {
+    background-color: #e6f4ea;
+    color: #137333;
+    border: 1px solid #c2e7cb;
+   
+}
+
+.alerta-erro {
+    background-color: #fce8e6;
+    color: #c5221f;
+    border: 1px solid #fad2cf;
+}
+
+.alerta-aviso {
+    background-color: #fef7e0;
+    color: #b06000;
+    border: 1px solid #feebc8;
+}
+
+.menu_acesso {
+    background-color:  #4a2c2a;
+    background-image: linear-gradient(135deg, #000000 0%, #4a2c2a 50%, #5f4343 100%);
+    color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40%;        
+    height: 100vh;     
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    padding: 20px;   
+    box-sizing: border-box;
+}
+.acesso{
+    margin-left: 270px; 
+    padding: 20px;
+    background-image: url("../IMG/Fundo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;        
+    height: 100vh;     
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    padding: 20px;   
+    box-sizing: border-box;}
+
+.acesso_Logo {
+    max-width: 80%;
+    height: auto;
+}
+.acesso_Logotipo {
+    width: 15%;
+    height: 12%;
+    margin-top: 15%;
+    border-radius: 20%;
+  
+}
+.acesso_form {
+    width: 350px;
+    padding: 50px;
+    color: #897575;
+    margin-top: 2%;
+    input{
+        width: 100%;
+        border-radius: 15px;
+        border: 2px solid #ffffff;
+        background-color: #aca09f;
+        color: #ffffff;
+    }
+    input:hover {
+        border: 2px solid #974cdd;
+    }
+    form{
+       background-color: #5b4740;
+       border: 1px solid #897a7a;
+    }
+   
+}
+.acesso_title{
+    color: #e5dddd;
+}
+
+.menu_lateral {
+    background-color:  #4a2c2a;
+    color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;        
+    height: 100vh;     
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    padding: 20px;   
+    box-sizing: border-box;
+}
+
+.Logo {
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 30px;  
+}
+.escopo {
+    margin-left: 270px; 
+    padding: 20px;
+}
+.menu_lateral a {
+    color: #fce8e6; 
+    text-decoration: none;
+    font-size: 14px;
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    transition: background 0.2s ease;
+}
+.menu_lateral a:hover {
+    background-color: #62462f; 
+    text-decoration: none;
+    color: #be79ff;
+}
+.card{
+    margin-left: 5%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+.card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.container_cards{
+    display: flex;
+    padding: 2%;
+}
+.card-link{
+    text-decoration: none;
+    color: #be79ff;
+}
+
+.card-link:hover{
+    text-decoration: none;
+    color: #7d1cbe;
+}
+.alinhar_input{
+    display: inline-block;
+    position: relative;
+    width: 300px;
+}
+.input_filto{
+        width: 100%;
+        padding: 6px 10px 6px 35px;
+        border: 2px solid #4a2c2a;
+        background-color: #62462f15;
+        color: #62462f;
+}
+.input_filto:hover{
+        border-color: #4a2c2a;
+}
